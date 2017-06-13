@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Space explorer</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Quicksand:400,500&amp;subset=latin-ext" rel="stylesheet">
-  </head>
-  <body>
-    ¡Hola mundo!
-  </body>
+
+<head>
+  <title>Space explorer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Quicksand:400,500&amp;subset=latin-ext" rel="stylesheet">
+</head>
+
+<body>
+  <main class="grid-background main-content">
+    <div class="monitor">
+      <img class="monitor-image" src="https://apod.nasa.gov/apod/image/0001/compton_deploy.jpg" />
+      <div class="monitor-description">
+        <h3>The Compton Gamma Ray Observatory</h3>
+        <span>The Compton Gamma Ray Observatory (CGRO) was the most massive instrument ever launched by a NASA Space Shuttle in 1991 and continues to revolutionize gamma-ray astronomy.  Before Compton loses more stabilizing gyroscopes, NASA is considering firing onboard rockets to bring it on a controlled reentry into the ocean. This orbiting observatory sees the sky in gamma-ray photons - light so blue humans can't see it.  These photons are blocked by the Earth's atmosphere from reaching the Earth's surface.  Results from CGRO, pictured above, have shown the entire universe to be a violent and rapidly changing place - when viewed in gamma-rays.  Astronomers using CGRO data continue to make monumental discoveries, including identifying mysterious gamma-ray bursts that uniquely illuminate the early universe, discovery of a whole new class of QSOs, and discovery of objects so strange that astronomers can't yet figure out what they are.</span>
+      </div>
+      <form class="monitor-date">
+        <div class="monitor-form-group">
+          <span>Año</span>
+          <input type="number" name="year" min="1996" max="2016" placeholder="YYYY">
+        </div>
+        <div class="monitor-form-group">
+          <span>Mes</span>
+          <input type="number" name="month" min="1" max="12" placeholder="MM">
+        </div>
+        <div class="monitor-form-group">
+          <span>Día</span>
+          <input type="number" name="day" min="1" max="31" placeholder="DD">
+        </div>
+        <input type="submit" value="Buscar" class="monitor-form-submit">
+      </form>
+    </div>
+
+    <div class="monitor">
+      <img class="monitor-image" />
+      <div class="monitor-description"></div>
+      <form class="monitor-date">
+        <div class="monitor-form-group">
+          <span>Año</span>
+          <input type="number" name="year" min="1996" max="2016">
+        </div>
+        <div class="monitor-form-group">
+          <span>Mes</span>
+          <input type="number" name="month" min="1" max="12">
+        </div>
+        <div class="monitor-form-group">
+          <span>Día</span>
+          <input type="number" name="day" min="1" max="31">
+        </div>
+        <input type="submit" value="Buscar" class="monitor-form-submit">
+      </form>
+    </div>
+
+    <div class="monitor">
+      <img class="monitor-image" />
+      <div class="monitor-description"></div>
+      <form class="monitor-date">
+        <div class="monitor-form-group">
+          <span>Año</span>
+          <input type="number" name="year" min="1996" max="2016">
+        </div>
+        <div class="monitor-form-group">
+          <span>Mes</span>
+          <input type="number" name="month" min="1" max="12">
+        </div>
+        <div class="monitor-form-group">
+          <span>Día</span>
+          <input type="number" name="day" min="1" max="31">
+        </div>
+        <input type="submit" value="Buscar" class="monitor-form-submit">
+      </form>
+    </div>
+    <!--<div class="glass-reflection"></div>-->
+  </main>
+</body>
+
 </html>
