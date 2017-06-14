@@ -18,7 +18,7 @@ body {
 .main-content {
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(3 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--separator) var(--separator);
     padding: var(--separator);
     box-sizing: border-box;
