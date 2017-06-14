@@ -14,90 +14,106 @@ body {
     font-size: 0.9rem;
     margin: 0;
 }
+
 .main-content {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: var(--separator) var(--separator);
-  padding: var(--separator);
-  box-sizing: border-box;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3 1fr);
+    grid-gap: var(--separator) var(--separator);
+    padding: var(--separator);
+    box-sizing: border-box;
 }
+
 .grid-background {
     --brown-rgba: rgba(55, 48, 30, .2);
     background-color: transparent;
     background-image: linear-gradient(0deg, transparent 24%, var(--brown-rgba) 25%, var(--brown-rgba) 26%, transparent 27%, transparent 74%, var(--brown-rgba) 75%, var(--brown-rgba) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--brown-rgba) 25%, var(--brown-rgba) 26%, transparent 27%, transparent 74%, var(--brown-rgba) 75%, var(--brown-rgba) 76%, transparent 77%, transparent);
     background-size: 70px 70px;
 }
+
 .glass-reflection {
-  background-image:linear-gradient(rgba(0, 0, 0, .2), rgba(255, 255, 255, .08) 25%, rgba(255, 255, 255, .04) 45%, rgba(0, 0, 0, .2));
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(255, 255, 255, .08) 25%, rgba(255, 255, 255, .04) 45%, rgba(0, 0, 0, .2));
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
 }
+
 .monitor {
-  border: 1px solid var(--light-blue);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  overflow: hidden;
-  padding: var(--separator);
+    border: 1px solid var(--light-blue);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    padding: var(--separator);
 }
+
 .monitor-image {
-  width: 100%;
+    width: 100%;
 }
+
 .monitor-description {
-  --border-style: 2px solid var(--light-blue);
-  border-top: var(--border-style);
-  border-bottom: var(--border-style);
-  margin: var(--separator) 0;
-  padding: var(--separator) 0;
-  overflow: hidden;
+    --border-style: 2px solid var(--light-blue);
+    border-top: var(--border-style);
+    border-bottom: var(--border-style);
+    margin: var(--separator) 0;
+    padding: var(--separator) 0;
+    overflow: hidden;
 }
+
 .monitor-description>h3 {
-  margin-top: 0;
+    margin-top: 0;
 }
+
 .monitor-description>span {
-  text-align: justify;
-  display: block;
+    text-align: justify;
+    display: block;
 }
- .monitor-date {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
- }
- .monitor-form-group {
-   display: flex;
-   flex-direction: column;
-   flex-grow: 1;
- }
- .monitor-form-group:not(:first-of-type) {
-   margin-left: var(--separator);
- }
- .monitor-form-submit {
-   margin-top: var(--separator);
-   width: 100%;
-   flex-shrink: 0;
-   font-family: 'Quicksand', sans-serif;
-   font-size: 1.2rem;
-   background-color: transparent;
-   border: none;
-   color: var(--orange);
-   cursor: pointer;
- }
- .monitor-form-submit:hover, .monitor-form-submit:focus {
-   background-color: var(--light-blue);
-   color: var(--dark-blue);
-   font-weight: 500;
-   outline: none;
- }
- input[type="number"] {
-   font-family: 'Anonymous Pro', monospace;
-   font-size: 1.2rem;
-   color: white;
-   background-color: var(--dark-blue);
-   border: none;
-   border-bottom: 1px solid var(--light-blue);
- }
-  input[type="number"]:focus {
+
+.monitor-date {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.monitor-form-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.monitor-form-group:not(:first-of-type) {
+    margin-left: var(--separator);
+}
+
+.monitor-form-submit {
+    margin-top: var(--separator);
+    width: 100%;
+    flex-shrink: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.monitor-form-submit:hover,
+.monitor-form-submit:focus {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 500;
+    outline: none;
+}
+
+input[type="number"] {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.2rem;
+    color: white;
+    background-color: var(--dark-blue);
+    border: none;
+    border-bottom: 1px solid var(--light-blue);
+}
+
+input[type="number"]:focus {
     outline-color: var(--light-blue);
     outline-width: 3px;
-  }
+}
