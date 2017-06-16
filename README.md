@@ -4,6 +4,7 @@ A simple JS app to be migrated to Typescript. No frameworks used.
 ## Resources used in the app
 - API: https://api.nasa.gov/api.html#apod
 - Grid background in css: https://codepen.io/jasonadelia/pen/DnrAe
+- Svg spinner by Sam Herbert (@sherb)
 - Axios library (for http requests): https://github.com/mzabriskie/axios
 
 ## How to run it

@@ -1,5 +1,7 @@
-import css from './style.css';
+import './style.css';
+import loading from './loading';
 import axios from 'axios';
+
 (function () {
   'use strict';
 
@@ -34,25 +36,46 @@ import axios from 'axios';
     manageError(new Error('Has escrito una fecha que no existe'));
   }
 
-  function showInformation(imageUrl, title, description) {
-    console.log(imageUrl, title, description);
+  function showInformationIn(container, imageUrl, title, description, callback) {
+    var image = container.querySelector('.monitor-image');
+    var descriptionBlock = container.querySelector('.monitor-description');
+    var descriptionText = document.createElement('div');
+    var descriptionTitle = document.createElement('h3');
+
+    // Remove current title and description in case they exist
+    descriptionBlock.innerHTML = '';
+
+    image.src = imageUrl;
+    descriptionTitle.innerHTML = title;
+    descriptionText.innerHTML = description;
+
+    // The image takes a time to load, avoid showing half the content
+    image.onload = function() {
+      descriptionBlock.appendChild(descriptionTitle);
+      descriptionBlock.appendChild(descriptionText);
+      callback();
+    }
   }
 
   function searchInAPOD(input) {
     var URL = 'https://api.nasa.gov/planetary/apod?';
     var KEY = 'DEMO_KEY';
-    axios.get(URL + 'date=' + input + '&api_key=' + KEY)
-    // TODO: some loading animation
+    return axios.get(URL + 'date=' + input + '&api_key=' + KEY)
       .then(function (result) {
-        showInformation(result.data.url, result.data.title, result.data.explanation);
-      })
-      .catch(manageError);
+        return result.data;
+      });
   }
 
   global.searchPhoto = function (form) {
     var date = formatFormValues(getFormValues(form));
     if (date) {
-      searchInAPOD(date);
+      loading.start();
+      searchInAPOD(date)
+        .then(function (data) {
+          showInformationIn(form.parentNode, data.url, data.title, data.explanation, loading.stop);
+        })
+        .catch(manageError);
     }
   }
+
 })();
