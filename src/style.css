@@ -56,7 +56,7 @@ body {
     border-bottom: var(--border-style);
     margin: var(--separator) 0;
     padding: var(--separator) 0;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .monitor-description>h3 {
