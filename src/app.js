@@ -1,6 +1,6 @@
-import './style.css';
-import loading from './loading';
-import axios from 'axios';
+require('./style.css');
+var loading = require('./loading');
+var axios = require('axios');
 
 (function () {
   'use strict';
