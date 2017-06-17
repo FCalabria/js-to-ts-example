@@ -19,5 +19,8 @@ export function start() {
 }
 
 export function stop() {
-  document.body.removeChild(document.getElementById('loading-spinner'));
+  var spinner = document.getElementById('loading-spinner');
+  if (spinner) {
+    document.body.removeChild(spinner);
+  }
 }
