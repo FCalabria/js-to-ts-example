@@ -2,14 +2,20 @@ require('./style.css');
 var loading = require('./loading');
 var axios = require('axios');
 
+export interface apodResponse {
+  url: string,
+  title: string,
+  explanation: string
+}
+
 (function () {
   'use strict';
 
-  function manageError(error) {
+  function manageError(error: Error) {
     alert(error);
   }
 
-  function getFormValues(form) {
+  function getFormValues(form: HTMLFormElement) {
     var formElements = form.elements;
     return [
       formElements.year.value,
@@ -18,7 +24,7 @@ var axios = require('axios');
     ];
   }
 
-  function formatFormValues(valuesArray) {
+  function formatFormValues(valuesArray: number[]) {
     valuesArray = valuesArray.map(function (num, i) {
       if (i !== 0 && num < 10) {
         return '0' + num;
@@ -36,7 +42,7 @@ var axios = require('axios');
     manageError(new Error('Has escrito una fecha que no existe'));
   }
 
-  function showInformationIn(container, imageUrl, title, description, callback) {
+  function showInformationIn(container: HTMLDivElement, imageUrl: string, title: string, description: string, callback: () => any) {
     var image = container.querySelector('.monitor-image');
     var descriptionBlock = container.querySelector('.monitor-description');
     var descriptionText = document.createElement('div');
@@ -57,22 +63,22 @@ var axios = require('axios');
     }
   }
 
-  function searchInAPOD(input) {
+  function searchInAPOD(input: string) {
     var URL = 'https://api.nasa.gov/planetary/apod?';
     var KEY = 'DEMO_KEY';
     return axios.get(URL + 'date=' + input + '&api_key=' + KEY)
-      .then(function (result) {
+      .then(function (result: {data: APODResponse}) {
         return result.data;
       });
   }
 
-  global.searchPhoto = function (form) {
+  (global as any).searchPhoto = function (form: HTMLFormElement) {
     var date = formatFormValues(getFormValues(form));
     if (date) {
       loading.start();
       searchInAPOD(date)
-        .then(function (data) {
-          showInformationIn(form.parentNode, data.url, data.title, data.explanation, loading.stop);
+        .then(function (data: apodResponse) {
+            showInformationIn(form.parentNode, data.url, data.title, data.explanation, loading.stop);
         })
         .catch(manageError);
     }
