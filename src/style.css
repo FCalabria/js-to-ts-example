@@ -77,7 +77,10 @@ body {
 .monitor-form-group {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex:1 1 auto;
+    /* Firefox input width is too big*/
+    width: 30%;
+    min-width: 100px;
 }
 
 .monitor-form-group:not(:first-of-type) {
@@ -111,6 +114,8 @@ input[type="number"] {
     background-color: var(--dark-blue);
     border: none;
     border-bottom: 1px solid var(--light-blue);
+    /* Firefox input width is too big*/
+    width: 100%;
 }
 
 input[type="number"]:focus {
