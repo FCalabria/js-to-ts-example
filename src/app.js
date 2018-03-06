@@ -1,3 +1,4 @@
+/* @flow */
 require('./style.css');
 var loading = require('./loading');
 var axios = require('axios');
